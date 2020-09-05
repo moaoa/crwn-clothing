@@ -1,12 +1,12 @@
 import React from 'react';
 import './MenuItem.scss';
 
-function MenuItem({ title, imgUrl, size }) {
+function MenuItem({ title, imageUrl, size }) {
     return (
         <div className={`menuItem ${size}`}>
             <div
                 className={'background-image'}
-                style={{ backgroundImage: `url(${imgUrl})` }}
+                style={{ backgroundImage: `url(${imageUrl})` }}
             />
             <div className="content">
                 <h3>{title.toUpperCase()}</h3>

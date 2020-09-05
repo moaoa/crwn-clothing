@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import HomePage from './Pages/HomePage/HomePage';
 import { Route, Switch } from 'react-router-dom';
@@ -6,11 +6,13 @@ import ShopPage from './Pages/ShopPage/ShopPage';
 import Header from './components/Header/Header';
 import signInSingupPage from './Pages/sign-in-sign-up-page/sign-in-sign-up-page';
 import { auth, createUser } from './firebase/firebase.utils';
+import { setUser } from './store/actions/actionCreatores';
+import { connect } from 'react-redux';
 
-function App() {
-    const [user, setUser] = useState(null);
+function App({ user, setUser }) {
     useEffect(() => {
-        const unsubscribe = auth().onAuthStateChanged(async (userAuth) => {
+        let unsubscribe = null;
+        unsubscribe = auth().onAuthStateChanged(async (userAuth) => {
             if (userAuth) {
                 const userRef = await createUser(userAuth);
 
@@ -39,4 +41,10 @@ function App() {
     );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        user: state.auth.user,
+    };
+};
+const mapDispatchToProps = { setUser };
+export default connect(mapStateToProps, mapDispatchToProps)(App);

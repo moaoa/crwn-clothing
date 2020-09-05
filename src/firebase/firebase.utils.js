@@ -41,6 +41,5 @@ export const createUser = async (user, additionalData) => {
 };
 export const signUpUser = async (email, password, name) => {
     const obj = await auth().createUserWithEmailAndPassword(email, password);
-    return new Promise((resolve, reject) => resolve(obj))
-    console.log(obj);
+    return new Promise((resolve, reject) => resolve(obj));
 };
