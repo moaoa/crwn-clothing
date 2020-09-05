@@ -1,9 +1,14 @@
 import React from 'react';
 import './CustomButton.scss';
 
-function CustomButton({ children, isGoogle, ...rest }) {
+function CustomButton({ children, isGoogle, inverted, ...rest }) {
     return (
-        <button className={`custom-button ${isGoogle && 'google'}`} {...rest}>
+        <button
+            className={`custom-button ${isGoogle && 'google'} ${
+                inverted ? 'inverted' : null
+            }`}
+            {...rest}
+        >
             {children}
         </button>
     );
