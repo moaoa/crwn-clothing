@@ -8,6 +8,9 @@ import signInSingupPage from './Pages/sign-in-sign-up-page/sign-in-sign-up-page'
 import { auth, createUser } from './firebase/firebase.utils';
 import { setUser } from './store/actions/actionCreatores';
 import { connect } from 'react-redux';
+import { selectCurrentUser } from './store/reducers/userSelectors';
+import { createStructuredSelector } from 'reselect';
+import CheckoutPage from './Pages/Checkout/Checkout';
 
 function App({ user, setUser }) {
     useEffect(() => {
@@ -36,15 +39,14 @@ function App({ user, setUser }) {
                 <Route exact path="/" component={HomePage} />
                 <Route path="/shop" component={ShopPage} />
                 <Route path="/signin" component={signInSingupPage} />
+                <Route exact path="/checkout" component={CheckoutPage} />
             </Switch>
         </div>
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        user: state.auth.user,
-    };
-};
+const mapStateToProps = createStructuredSelector({
+    user: selectCurrentUser,
+});
 const mapDispatchToProps = { setUser };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

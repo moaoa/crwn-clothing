@@ -6,6 +6,7 @@ import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cartIcon/cartIcon';
 import CartDropDown from '../CardDropDown/CartDropDown';
 import { connect } from 'react-redux';
+import { selectCartHidden } from '../../store/reducers/cartSelectors';
 
 function Header({ user, hidden }) {
     return (
@@ -32,5 +33,5 @@ function Header({ user, hidden }) {
         </div>
     );
 }
-const mapStateToProps = (state) => ({ hidden: state.cart.hidden });
+const mapStateToProps = (state) => ({ hidden: selectCartHidden(state) });
 export default connect(mapStateToProps)(Header);
