@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { selectCurrentUser } from './store/reducers/userSelectors';
 import { createStructuredSelector } from 'reselect';
 import CheckoutPage from './Pages/Checkout/Checkout';
+// import { selectCollectionsForOverview } from './store/reducers/shop/shopSelector';
 
 function App({ user, setUser }) {
     useEffect(() => {
@@ -25,11 +26,11 @@ function App({ user, setUser }) {
             } else {
                 setUser(null);
             }
-            return () => {
-                console.log(unsubscribe);
-                unsubscribe();
-            };
         });
+
+        return () => {
+            unsubscribe();
+        };
     }, []);
 
     return (

@@ -4,7 +4,7 @@ import CollectionItem from '../../components/CollectionItem/CollectionItem';
 import { connect } from 'react-redux';
 import { selectParticularCollection } from '../../store/reducers/shop/shopSelector';
 
-function CollectionPage({ match, collection }) {
+let CollectionPage = ({ collection }) => {
     const { title, items } = collection;
     return (
         <div className="collection-page">
@@ -16,11 +16,13 @@ function CollectionPage({ match, collection }) {
             </div>
         </div>
     );
-}
-const mapStateToProps = (state, ownProps) => ({
-    collection: selectParticularCollection(
-        ownProps['match']['params']['categoryId']
-    )(state),
-});
+};
+const mapStateToProps = (state, ownProps) => {
+    return {
+        collection: selectParticularCollection(
+            ownProps['match']['params']['categoryId']
+        )(state),
+    };
+};
 
 export default connect(mapStateToProps)(CollectionPage);
