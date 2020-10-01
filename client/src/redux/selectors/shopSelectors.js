@@ -26,5 +26,8 @@ export const selectIsFetching = createSelector(
 
 export const selectIsCollectionsLoaded = createSelector(
     [selectCollections],
-    (collections) => !!collections
+    (collections) => {
+        if (!collections) return !!collections;
+        return !!Object.keys(collections).length;
+    }
 );
