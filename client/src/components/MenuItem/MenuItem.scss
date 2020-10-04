@@ -9,9 +9,6 @@
     margin: 0 7.5px 15px;
     overflow: hidden;
 
-    &.large {
-        height: 380px;
-    }
     &:last-child {
         margin-left: 7.5px;
     }
@@ -46,6 +43,14 @@
         h3 {
             margin: 0 10px;
             font-weight: bold;
+        }
+    }
+}
+
+@media (min-width: 500px) {
+    .menuItem {
+        .large {
+            height: 380px;
         }
     }
 }

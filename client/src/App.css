@@ -1,10 +1,16 @@
 body {
-    padding: 20px 60px;
     font-family: 'Open Sans Condensed', sans-serif;
     word-spacing: 3px;
+    padding: 20px;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+@media (min-width: 500px) {
+    body {
+        padding: 20px 60px;
+    }
 }
