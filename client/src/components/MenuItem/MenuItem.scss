@@ -47,9 +47,9 @@
     }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 825px) {
     .menuItem {
-        .large {
+        &.large {
             height: 380px;
         }
     }

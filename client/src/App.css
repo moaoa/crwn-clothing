@@ -9,7 +9,7 @@ a {
     color: black;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 630px) {
     body {
         padding: 20px 60px;
     }
