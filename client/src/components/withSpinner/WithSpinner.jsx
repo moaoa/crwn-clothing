@@ -1,19 +1,9 @@
 import React from 'react';
+import Spinner from '../Spinner/Spinner';
 
 const WithSpinner = (WrappedComponent) => ({ isLoading, ...otherProps }) => {
     return (
-        <>
-            {isLoading ? (
-                <div
-                    style={{ textAlign: 'center', color: 'black' }}
-                    className="spinner"
-                >
-                    loading
-                </div>
-            ) : (
-                <WrappedComponent {...otherProps} />
-            )}
-        </>
+        <>{isLoading ? <Spinner /> : <WrappedComponent {...otherProps} />}</>
     );
 };
 
