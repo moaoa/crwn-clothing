@@ -26,3 +26,8 @@ export const decreaseItemQuantity = (cartItems, cartItemId) => {
         return item;
     });
 };
+
+export const setCartItems = (cartItems) => {
+    if (!cartItems) return [];
+    return cartItems;
+};

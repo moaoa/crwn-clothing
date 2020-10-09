@@ -24,6 +24,7 @@ const CheckoutPage = lazy(() => import('./Pages/Checkout/Checkout'));
 function App({ user, checkUserSesion }) {
     useEffect(() => {
         checkUserSesion();
+
         // let unsubscribe = null;
         // unsubscribe = auth().onAuthStateChanged(async (userAuth) => {
         //     if (userAuth) {

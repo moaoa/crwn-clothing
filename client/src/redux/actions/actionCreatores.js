@@ -41,15 +41,34 @@ export const signOutUserFailure = (err) => ({
 });
 
 // cart actoins
+export const fetchCartItems = () => ({
+    type: actionTypes.FETCH_CART_ITEMS_START,
+});
+export const fetchCartItemsSuccess = (cartItems) => ({
+    type: actionTypes.FETCH_CART_ITEMS_SUCCESS,
+    payload: cartItems,
+});
+export const fetchCartItemsFailure = (err) => ({
+    type: actionTypes.FETCH_CART_ITEMS_FAILURE,
+    payload: err,
+});
 export const toggleHidden = () => ({ type: actionTypes.TOGGLE_HIDDEN });
-export const addItem = (item) => ({ type: actionTypes.ADD_ITEM, item });
+export const addItem = (item) => ({ type: actionTypes.ADD_ITEM_START, item });
+export const addItemSuccess = (cartItems) => ({
+    type: actionTypes.ADD_ITEM_SUCCESS,
+    cartItems,
+});
+export const addItemFailure = (err) => ({
+    type: actionTypes.ADD_ITEM_FAILURE,
+    payload: err,
+});
 export const removeItem = (itemId) => ({
     type: actionTypes.REMOVE_ITEM_FROM_CART,
     itemId,
 });
 
 export const decreaseItemQuantity = (itemId) => ({
-    type: actionTypes.DECREASE_ITEM_QUANTITY,
+    type: actionTypes.DECREASE_ITEM_QUANTITY_START,
     itemId,
 });
 export const clearCartOut = () => ({ type: actionTypes.CLEAR_CART });

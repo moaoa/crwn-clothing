@@ -7,6 +7,7 @@ import {
     signOutUserSuccess,
     signOutUserFailure,
     signUpFailure,
+    fetchCartItems,
 } from '../actions/actionCreatores';
 
 import {
@@ -20,6 +21,7 @@ export function* getUserSnapshot(user) {
     const userRef = yield call(createUser, user);
     const snapShot = yield userRef.get();
     yield put(SignInSuccess({ id: snapShot.id, ...snapShot.data() }));
+    yield put(fetchCartItems());
 }
 
 export function* checkUserSesion() {

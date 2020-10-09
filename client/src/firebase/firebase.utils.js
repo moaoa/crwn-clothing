@@ -81,3 +81,17 @@ export const checkUserAuthState = () => {
         }, reject);
     });
 };
+
+export const getUserData = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const userRef = await firestore().doc(
+                `/users/${auth().currentUser.uid}`
+            );
+            const snapshot = await userRef.get();
+            resolve({ userRef, userData: snapshot.data() });
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
