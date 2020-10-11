@@ -2,10 +2,11 @@ import React from 'react';
 import './CheckoutItem.scss';
 import {
     removeItem,
-    decreaseItemQuantity,
+    decreaseItemQuantityStart,
     addItem,
 } from '../../redux/actions/actionCreatores';
 import { connect } from 'react-redux';
+import { decreaseItemQuantity } from '../../redux/reducers/utils/cartUtils';
 
 function CheckoutItem({ cartItem, removeItem, decreaseItemQuantity, addItem }) {
     const { name, imageUrl, price, quantity, id } = cartItem;
@@ -33,7 +34,7 @@ function CheckoutItem({ cartItem, removeItem, decreaseItemQuantity, addItem }) {
 }
 const mapDispatchToProps = {
     removeItem,
-    decreaseItemQuantity,
+    decreaseItemQuantity: decreaseItemQuantityStart,
     addItem,
 };
 

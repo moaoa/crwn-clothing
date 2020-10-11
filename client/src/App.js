@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Spinner from './components/Spinner/Spinner';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+
 // import signInSingupPage from './Pages/sign-in-sign-up-page/sign-in-sign-up-page';
 // import CheckoutPage from './Pages/Checkout/Checkout';
 import { checkUserSesion } from './redux/actions/actionCreatores';
@@ -44,6 +45,8 @@ function App({ user, checkUserSesion }) {
     return (
         <div className="App">
             <Header user={user} />
+            
+
             <ErrorBoundary>
                 <Suspense fallback={<Spinner />}>
                     <Switch>

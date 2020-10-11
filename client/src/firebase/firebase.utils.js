@@ -84,9 +84,10 @@ export const checkUserAuthState = () => {
 
 export const getUserData = () => {
     return new Promise(async (resolve, reject) => {
+        const user = await auth().currentUser
         try {
             const userRef = await firestore().doc(
-                `/users/${auth().currentUser.uid}`
+                `/users/${user?.uid}`
             );
             const snapshot = await userRef.get();
             resolve({ userRef, userData: snapshot.data() });
